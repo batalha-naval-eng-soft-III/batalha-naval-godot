@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://tuxa0888v5tp"]
+
+[ext_resource type="Texture2D" uid="uid://dgfgwdqr5ik0d" path="res://Sprites/1explosion.png" id="1_wtjpl"]
+[ext_resource type="Texture2D" uid="uid://b8ifrwxia3grf" path="res://Sprites/2explosion.png" id="2_u85nj"]
+[ext_resource type="Texture2D" uid="uid://bfcrlxqg700pp" path="res://Sprites/3explosion.png" id="3_vcvai"]
+[ext_resource type="Script" uid="uid://7n0b5sh6ahnq" path="res://explosion.gd" id="4_o0isi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lkf6w"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_wtjpl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_u85nj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vcvai")
+}],
+"loop": false,
+"name": &"explode",
+"speed": 4.5
+}]
+
+[node name="Explosion" type="AnimatedSprite2D" unique_id=1334771406]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_lkf6w")
+animation = &"explode"
+frame = 2
+frame_progress = 1.0
+centered = false
+script = ExtResource("4_o0isi")

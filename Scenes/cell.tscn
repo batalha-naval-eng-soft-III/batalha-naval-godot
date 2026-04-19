@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://bhf2p8juchok1"]
+
+[ext_resource type="Texture2D" uid="uid://ngsa3ysc56eu" path="res://Sprites/water.png" id="1_efq80"]
+
+[sub_resource type="GDScript" id="GDScript_wp51n"]
+script/source = "extends Button
+
+var x:int
+var y:int
+var ship_id = -1
+var is_selected = false
+var was_attacked_by_enemy = false
+enum ShipType {NONE, PIRATE, LIGHTHOUSE}
+var ship_type = ShipType.NONE
+
+enum CellState { EMPTY, SHIP, HIT, MISS, OBSERVED }
+var state = CellState.EMPTY
+var is_enemy = false
+
+# parte do navio: 1, 2 ou 3
+var ship_part = 0
+
+signal clicked(x, y)
+signal right_clicked(x, y)
+
+@onready var sprite = $TextureRect
+
+func _ready():
+	update_visual()
+
+func _gui_input(event):
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			emit_signal(\"clicked\", x, y)
+		
+		elif event.button_index == MOUSE_BUTTON_RIGHT:
+			emit_signal(\"right_clicked\", x, y)
+
+func update_visual():
+	match state:
+		CellState.EMPTY:
+			if is_enemy:
+				sprite.texture = preload(\"res://sprites/unknown.png\")
+			else:
+				sprite.texture = preload(\"res://sprites/water.png\")
+		
+		CellState.SHIP:
+			if is_enemy:
+				sprite.texture = preload(\"res://sprites/unknown.png\")
+			else:
+				match ship_type:
+					ShipType.PIRATE:
+						match ship_part:
+							1:
+								sprite.texture = preload(\"res://sprites/1pirateship.png\")
+							2:
+								sprite.texture = preload(\"res://sprites/2pirateship.png\")
+							3:
+								sprite.texture = preload(\"res://sprites/3pirateship.png\")
+			
+					ShipType.LIGHTHOUSE:
+						match ship_part:
+							1:
+								sprite.texture = preload(\"res://sprites/1lighthouse.png\")
+							2:
+								sprite.texture = preload(\"res://sprites/2lighthouse.png\")
+		
+		CellState.HIT:
+			match ship_type:
+				ShipType.PIRATE:
+					match ship_part:
+						1:
+							sprite.texture = preload(\"res://sprites/1pirateshipdestroyed.png\")
+						2:
+							sprite.texture = preload(\"res://sprites/2pirateshipdestroyed.png\")
+						3:
+							sprite.texture = preload(\"res://sprites/3pirateshipdestroyed.png\")
+		
+				ShipType.LIGHTHOUSE:
+					match ship_part:
+						1:
+							sprite.texture = preload(\"res://sprites/1lighthousedestroyed.png\")
+						2:
+							sprite.texture = preload(\"res://sprites/2lighthousedestroyed.png\")
+		
+		CellState.MISS:
+			if was_attacked_by_enemy:
+				sprite.texture = preload(\"res://sprites/watermarked.png\")
+			else:
+				sprite.texture = preload(\"res://sprites/water.png\")
+				
+		CellState.OBSERVED:
+			if ship_type == ShipType.NONE:
+				sprite.texture = preload(\"res://sprites/water.png\")
+			else:
+				match ship_type:
+					ShipType.PIRATE:
+						match ship_part:
+							1:
+								sprite.texture = preload(\"res://sprites/1pirateship.png\")
+							2:
+								sprite.texture = preload(\"res://sprites/2pirateship.png\")
+							3:
+								sprite.texture = preload(\"res://sprites/3pirateship.png\")
+
+					ShipType.LIGHTHOUSE:
+						match ship_part:
+							1:
+								sprite.texture = preload(\"res://sprites/1lighthouse.png\")
+							2:
+								sprite.texture = preload(\"res://sprites/2lighthouse.png\")
+			
+	if is_selected:
+		modulate = Color(0.5, 1, 0.5)  # verde claro
+	else:
+		modulate = Color(1, 1, 1)      # normal
+
+func set_selected(value):
+	is_selected = value
+	update_visual()
+"
+
+[node name="Cell" type="Button" unique_id=613297123]
+custom_minimum_size = Vector2(32, 32)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/h_separation = 4
+script = SubResource("GDScript_wp51n")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1919618807]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_efq80")
+expand_mode = 1
