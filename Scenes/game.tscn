@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cfxkq5dhm58us" path="res://Scripts/game.gd" id="1_ebmjs"]
 [ext_resource type="Texture2D" uid="uid://ps7vcrb500a" path="res://Sprites/bluebutton.png" id="2_qxrlw"]
+[ext_resource type="Script" uid="uid://dh6cql1v0j1gk" path="res://Scripts/firebase_manager.gd" id="2_rku1e"]
 [ext_resource type="Texture2D" uid="uid://dgrqtfieivvq3" path="res://Sprites/background.png" id="2_wrm1d"]
 [ext_resource type="Texture2D" uid="uid://buw4rv2mfdrqx" path="res://Sprites/backgroundenemy.png" id="3_3dryh"]
 [ext_resource type="FontFile" uid="uid://hfvpfi8ywitx" path="res://Fonts/PressStart2P-Regular.ttf" id="4_i6g32"]
@@ -14,6 +15,9 @@
 
 [node name="Game" type="Node2D" unique_id=404758219]
 script = ExtResource("1_ebmjs")
+
+[node name="FirebaseManager" type="Node" parent="." unique_id=1684654417]
+script = ExtResource("2_rku1e")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1736297527]
 offset_left = -409.00003
@@ -115,7 +119,7 @@ scale = Vector2(5.5, 5.5)
 texture_normal = ExtResource("9_o5yvi")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2109613366]
-position = Vector2(42, 205)
+position = Vector2(42, 237)
 zoom = Vector2(1.5, 1.5)
 
 [node name="BgLabel" type="ColorRect" parent="Camera2D" unique_id=1354282891]
