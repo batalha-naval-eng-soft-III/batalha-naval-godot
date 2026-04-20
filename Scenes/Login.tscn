@@ -41,7 +41,16 @@ font_size = 36
 [node name="Login" type="Node2D" unique_id=758027218]
 script = ExtResource("1_767d8")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1912362990]
+offset_left = -3.0
+offset_top = -2.0
+offset_right = 1283.0
+offset_bottom = 720.0
+texture = ExtResource("2_767d8")
+stretch_mode = 1
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=159369342]
+visible = false
 position = Vector2(645.5, 365.5)
 scale = Vector2(41.34375, 23.84375)
 texture = ExtResource("2_767d8")
@@ -58,7 +67,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1697415754]
+[node name="LabelLogin" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1697415754]
 layout_mode = 2
 text = "LOGIN"
 label_settings = SubResource("LabelSettings_bhoxy")
@@ -77,7 +86,7 @@ max_length = 60
 emoji_menu_enabled = false
 secret = true
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=560413605]
+[node name="LoginButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=560413605]
 layout_mode = 2
 text = "Acessar"
 
@@ -92,6 +101,6 @@ theme_override_constants/margin_left = 0
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer2" unique_id=598452368]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="MarginContainer2/CenterContainer" unique_id=1923272594]
+[node name="EsqueciSenhaButton" type="Button" parent="MarginContainer2/CenterContainer" unique_id=1923272594]
 layout_mode = 2
 text = "Esqueci minha senha"
