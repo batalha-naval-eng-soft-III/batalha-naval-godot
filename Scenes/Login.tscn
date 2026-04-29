@@ -41,6 +41,8 @@ font_size = 36
 [node name="Login" type="Node2D" unique_id=758027218]
 script = ExtResource("1_767d8")
 
+[node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=733480001]
+
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1912362990]
 offset_left = -3.0
 offset_top = -2.0
@@ -102,3 +104,5 @@ layout_mode = 2
 [node name="EsqueciSenhaButton" type="Button" parent="MarginContainer2/CenterContainer" unique_id=1923272594]
 layout_mode = 2
 text = "Esqueci minha senha"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/LoginButton" to="." method="_on_login_button_pressed"]

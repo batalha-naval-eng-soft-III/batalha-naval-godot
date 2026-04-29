@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://3m82apg0iwec"]
+
+[ext_resource type="Script" uid="uid://dq2mfpm4yg50b" path="res://Scripts/menu_principal.gd" id="1_crked"]
+[ext_resource type="Texture2D" uid="uid://dgrqtfieivvq3" path="res://Sprites/background.png" id="1_gjtjt"]
+[ext_resource type="Script" uid="uid://df28dkg6sew3s" path="res://Scripts/firebase_manager.gd" id="2_y4xp8"]
+
+[node name="MenuPrincipal" type="Node2D" unique_id=1497785253]
+script = ExtResource("1_crked")
+
+[node name="Firebase" type="Node" parent="." unique_id=1968157801]
+script = ExtResource("2_y4xp8")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1784519000]
+offset_left = -3.0
+offset_top = -2.0
+offset_right = 1283.0
+offset_bottom = 720.0
+texture = ExtResource("1_gjtjt")
+stretch_mode = 1
+
+[node name="CreateroomButton" type="Button" parent="." unique_id=657855340]
+offset_left = 659.0
+offset_top = 394.0
+offset_right = 667.0
+offset_bottom = 402.0
+text = "Criar Sala"
+
+[node name="JoinroomButton" type="Button" parent="." unique_id=1843573949]
+offset_left = 639.0
+offset_top = 441.0
+offset_right = 761.0
+offset_bottom = 472.0
+text = "Entrar em Sala"
+
+[node name="PanelCreateroom" type="ColorRect" parent="." unique_id=463821444]
+visible = false
+offset_left = 473.0
+offset_top = 283.0
+offset_right = 673.0
+offset_bottom = 483.0
+color = Color(0, 0, 0, 1)
+
+[node name="CreateroomnameInput" type="LineEdit" parent="PanelCreateroom" unique_id=1573890989]
+layout_mode = 0
+offset_left = 33.000015
+offset_top = 53.0
+offset_right = 183.00002
+offset_bottom = 84.0
+placeholder_text = "Nome da sala"
+
+[node name="CreateroompassInput" type="LineEdit" parent="PanelCreateroom" unique_id=1754877349]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 100.0
+offset_right = 183.0
+offset_bottom = 131.0
+placeholder_text = "Senha da sala"
+
+[node name="CreateroomLabel" type="Label" parent="PanelCreateroom" unique_id=96376255]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 19.0
+offset_right = 163.0
+offset_bottom = 42.0
+text = "Criar sala"
+
+[node name="CreateButton" type="Button" parent="PanelCreateroom" unique_id=450465645]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 141.0
+offset_right = 114.0
+offset_bottom = 172.0
+text = "Criar"
+
+[node name="LeavecreateButton" type="Button" parent="PanelCreateroom" unique_id=500750283]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 169.0
+offset_right = 120.0
+offset_bottom = 200.0
+text = "Voltar"
+
+[node name="PanelJoinroom" type="ColorRect" parent="." unique_id=78929661]
+visible = false
+offset_left = 473.0
+offset_top = 283.0
+offset_right = 673.0
+offset_bottom = 483.0
+color = Color(0, 0, 0, 1)
+
+[node name="JoinroompassInput" type="LineEdit" parent="PanelJoinroom" unique_id=1551492943]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 100.0
+offset_right = 183.0
+offset_bottom = 131.0
+placeholder_text = "Senha da sala"
+
+[node name="JoinroomnameInput" type="LineEdit" parent="PanelJoinroom" unique_id=881458512]
+layout_mode = 0
+offset_left = 33.000015
+offset_top = 53.0
+offset_right = 183.00002
+offset_bottom = 84.0
+placeholder_text = "Nome da sala"
+
+[node name="JoinroomLabel" type="Label" parent="PanelJoinroom" unique_id=1046312422]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 19.0
+offset_right = 163.0
+offset_bottom = 42.0
+text = "Entrar em Sala"
+
+[node name="JoinButton" type="Button" parent="PanelJoinroom" unique_id=1176968447]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 141.0
+offset_right = 114.0
+offset_bottom = 172.0
+text = "Entrar
+"
+
+[node name="LeavejoinButton" type="Button" parent="PanelJoinroom" unique_id=375153067]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 169.0
+offset_right = 120.0
+offset_bottom = 200.0
+text = "Voltar"
+
+[connection signal="pressed" from="CreateroomButton" to="." method="_on_createroom_button_pressed"]
+[connection signal="pressed" from="JoinroomButton" to="." method="_on_joinroom_button_pressed"]
+[connection signal="pressed" from="PanelCreateroom/CreateButton" to="." method="_on_create_button_pressed"]
+[connection signal="pressed" from="PanelCreateroom/LeavecreateButton" to="." method="_on_leavecreate_button_pressed"]
+[connection signal="pressed" from="PanelJoinroom/JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="pressed" from="PanelJoinroom/LeavejoinButton" to="." method="_on_leavejoin_button_pressed"]
