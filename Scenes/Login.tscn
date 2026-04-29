@@ -49,12 +49,6 @@ offset_bottom = 720.0
 texture = ExtResource("2_767d8")
 stretch_mode = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=159369342]
-visible = false
-position = Vector2(645.5, 365.5)
-scale = Vector2(41.34375, 23.84375)
-texture = ExtResource("2_767d8")
-
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=458212287]
 offset_right = 1270.0
 offset_bottom = 720.0
@@ -89,6 +83,10 @@ secret = true
 [node name="LoginButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=560413605]
 layout_mode = 2
 text = "Acessar"
+
+[node name="SignUpButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=467660869]
+layout_mode = 2
+text = "Criar Conta"
 
 [node name="MarginContainer2" type="MarginContainer" parent="." unique_id=957062709]
 offset_top = 600.0
