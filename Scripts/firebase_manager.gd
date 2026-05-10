@@ -1,5 +1,7 @@
 extends Node
 
+signal room_updated(data)
+
 var base_url = "https://battleship-multiplayer-cc51c-default-rtdb.firebaseio.com/"
 
 var listening := false
@@ -170,6 +172,7 @@ func _handle_room_update(data):
 
 	# DEBUG
 	print("ROOM UPDATE RECEIVED")
+	emit_signal("room_updated", data)
 	
 	
 func try_join_room(room_id: String, player_id: String, password: String):
