@@ -7,7 +7,7 @@ on:
 
 permissions:
   contents: read
-	
+
 env:
   GODOT_VERSION: 4.6.2
   EXPORT_NAME: batalha-naval
