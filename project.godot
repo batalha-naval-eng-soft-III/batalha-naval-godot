@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Battleship"
-run/main_scene="uid://bq3spg6m0urtn"
+run/main_scene="uid://bndbm4gcmiag6"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Session="*uid://db3ouba8d7vsm"
 
 [display]
 

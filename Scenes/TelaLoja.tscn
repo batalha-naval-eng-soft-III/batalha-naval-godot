@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://csgoly7dydsk7"]
+
+[ext_resource type="Texture2D" uid="uid://dlnpf0y08l250" path="res://Sprites/Placeholder/Placeholder.png" id="1_q4cfh"]
+[ext_resource type="PackedScene" uid="uid://dbki8o7rdgqm5" path="res://Scenes/item_loja.tscn" id="2_g62hh"]
+
+[node name="TelaLoja" type="Node2D" unique_id=204960472]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1687849451]
+position = Vector2(650, 88)
+scale = Vector2(6.47, 0.86499995)
+texture = ExtResource("1_q4cfh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1909817496]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=997905885]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.17319292, 0.111599244, 0.5690529, 1)
+
+[node name="MoedaOuro" type="Label" parent="CanvasLayer" unique_id=747884486]
+offset_left = 684.0
+offset_top = 57.0
+offset_right = 862.0
+offset_bottom = 104.0
+size_flags_horizontal = 4
+text = "Ouro"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BotaoVoltarTela" type="Button" parent="CanvasLayer" unique_id=759711119]
+offset_left = 1096.0
+offset_top = 51.0
+offset_right = 1260.0
+offset_bottom = 118.0
+text = "Voltar"
+metadata/_edit_use_anchors_ = true
+
+[node name="MoedaGema" type="Label" parent="CanvasLayer" unique_id=1107289483]
+offset_left = 900.0
+offset_top = 57.0
+offset_right = 1078.0
+offset_bottom = 104.0
+size_flags_horizontal = 4
+text = "Gema"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Setor" type="Label" parent="CanvasLayer" unique_id=1226650201]
+offset_top = 16.0
+offset_right = 217.0
+offset_bottom = 51.0
+text = "Armamento & Cosméticos"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Setor2" type="Label" parent="CanvasLayer" unique_id=248533152]
+offset_left = 2.0
+offset_top = 62.0
+offset_right = 216.0
+offset_bottom = 107.0
+theme_override_font_sizes/font_size = 32
+text = "Arsenal Naval"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=673448055]
+anchors_preset = -1
+anchor_top = 0.49305555
+anchor_bottom = 0.5
+offset_top = -176.0
+offset_right = 233.0
+offset_bottom = 360.0
+grow_vertical = 2
+theme_override_constants/separation = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=761452179]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Categorias"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=416754999]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Navios
+"
+
+[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=279905584]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Skins
+"
+
+[node name="Button3" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=962868977]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Efeitos
+"
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer" unique_id=1076697713]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1020.0
+offset_top = -543.0
+offset_right = -88.0
+offset_bottom = -169.0
+grow_horizontal = 0
+grow_vertical = 0
+columns = 5
+
+[node name="ItemLoja" parent="CanvasLayer/GridContainer" unique_id=487360648 instance=ExtResource("2_g62hh")]
+layout_mode = 2
+
+[node name="ItemLoja2" parent="CanvasLayer/GridContainer" unique_id=1047451500 instance=ExtResource("2_g62hh")]
+layout_mode = 2
+
+[node name="ItemLoja3" parent="CanvasLayer/GridContainer" unique_id=1806811013 instance=ExtResource("2_g62hh")]
+layout_mode = 2
+
+[node name="ItemLoja4" parent="CanvasLayer/GridContainer" unique_id=2053635137 instance=ExtResource("2_g62hh")]
+layout_mode = 2

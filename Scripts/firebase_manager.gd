@@ -14,10 +14,11 @@ var polling_active := false
 # ROOM FUNCTIONS
 # -------------------------
 
-func create_room(room_id: String, player_id: String):
+func create_room(room_id: String, player_id: String, password: String):
 	var url = base_url + "rooms/" + room_id + ".json"
 
 	var data = {
+		"password": password,
 		"players": {
 			player_id: true
 		},
@@ -169,3 +170,45 @@ func _handle_room_update(data):
 
 	# DEBUG
 	print("ROOM UPDATE RECEIVED")
+	
+	
+func try_join_room(room_id: String, player_id: String, password: String):
+	var url = base_url + "rooms/" + room_id + ".json"
+
+	var http = HTTPRequest.new()
+	add_child(http)
+
+	http.request_completed.connect(func(result, code, headers, body):
+
+		print("CODE:", code)
+
+		if body == null:
+			print("Body nulo")
+			http.queue_free()
+			return
+
+		var text = body.get_string_from_utf8()
+		print("BODY:", text)
+
+		if text == "":
+			print("Resposta vazia")
+			http.queue_free()
+			return
+
+		var data = JSON.parse_string(text)
+
+		if typeof(data) != TYPE_DICTIONARY:
+			print("Sala não existe ou resposta inválida")
+			http.queue_free()
+			return
+
+		if data.has("password") and data["password"] == password:
+			print("Senha correta, entrando...")
+			join_room(room_id, player_id)
+		else:
+			print("Senha incorreta")
+
+		http.queue_free()
+	)
+
+	http.request(url)

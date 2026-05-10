@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b485ibjhj7ydq"]
+
+[ext_resource type="Texture2D" uid="uid://dgrqtfieivvq3" path="res://Sprites/background.png" id="1_qsfwr"]
+
+[node name="RecuperacaoDeSenha" type="Node2D" unique_id=1002366422]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1220674660]
+position = Vector2(645.5, 365.5)
+scale = Vector2(41.34375, 23.84375)
+texture = ExtResource("1_qsfwr")

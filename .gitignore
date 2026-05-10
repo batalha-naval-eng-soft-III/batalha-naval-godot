@@ -1,20 +1,30 @@
-# Godot 4
+# Godot 4+
 .godot/
-.import/
-export/
-*.import
 
-# builds/exportações
-*.exe
-*.pck
+# Imports automáticos (cache)
+.import/
+
+# Exportações
+export.cfg
+export_presets.cfg
+
+# Build / arquivos gerados
 *.apk
+*.aab
+*.exe
 *.zip
 
-# system
+# Logs
+*.log
+
+# Sistema operacional
 .DS_Store
 Thumbs.db
 
-# logs
-*.log
+# IDEs
+.vscode/
+.idea/
 
-# caches
+# Arquivos temporários
+*.tmp
+*.bak
