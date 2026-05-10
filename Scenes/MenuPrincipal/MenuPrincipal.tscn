@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dq2mfpm4yg50b" path="res://Scripts/Menus/MenuPrincipal.gd" id="1_0i0ye"]
 [ext_resource type="Script" uid="uid://df28dkg6sew3s" path="res://Scripts/Firebase/FirebaseManager.gd" id="2_wfchw"]
-[ext_resource type="Texture2D" uid="uid://dgrqtfieivvq3" path="res://Sprites/PlanosDeFundo/background.png" id="3_sq7d3"]
+[ext_resource type="Texture2D" uid="uid://dgrqtfieivvq3" path="res://Assets/Sprites/PlanosDeFundo/background.png" id="3_sq7d3"]
 
 [node name="MenuPrincipal" type="Node2D" unique_id=1497785253]
 script = ExtResource("1_0i0ye")

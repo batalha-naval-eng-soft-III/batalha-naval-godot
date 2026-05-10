@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dbki8o7rdgqm5"]
 
-[ext_resource type="Texture2D" uid="uid://dgfgwdqr5ik0d" path="res://Sprites/Explosao/explosion-1.png" id="1_loxgc"]
+[ext_resource type="Texture2D" uid="uid://dgfgwdqr5ik0d" path="res://Assets/Sprites/Explosao/explosion-1.png" id="1_loxgc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wkfx5"]
 bg_color = Color(0.560829, 0.3783279, 0.07247969, 1)

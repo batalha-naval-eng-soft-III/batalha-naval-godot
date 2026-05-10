@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://csgoly7dydsk7"]
 
-[ext_resource type="Texture2D" uid="uid://dlnpf0y08l250" path="res://Sprites/Placeholder/Placeholder.png" id="1_q4cfh"]
+[ext_resource type="Texture2D" uid="uid://dlnpf0y08l250" path="res://Assets/Sprites/Placeholder/Placeholder.png" id="1_q4cfh"]
 [ext_resource type="PackedScene" uid="uid://dbki8o7rdgqm5" path="res://Scenes/MenuPrincipal/Loja/Item.tscn" id="2_g62hh"]
 
 [node name="TelaLoja" type="Node2D" unique_id=204960472]

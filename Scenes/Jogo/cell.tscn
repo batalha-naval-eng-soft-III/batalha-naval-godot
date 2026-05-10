@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bhf2p8juchok1"]
 
-[ext_resource type="Texture2D" uid="uid://ngsa3ysc56eu" path="res://Sprites/Tabuleiro/water.png" id="1_efq80"]
+[ext_resource type="Texture2D" uid="uid://ngsa3ysc56eu" path="res://Assets/Sprites/Tabuleiro/water.png" id="1_efq80"]
 
 [sub_resource type="GDScript" id="GDScript_wp51n"]
 script/source = "extends Button
@@ -40,75 +40,75 @@ func update_visual():
 	match state:
 		CellState.EMPTY:
 			if is_enemy:
-				sprite.texture = preload(\"res://Sprites/Tabuleiro/unknown.png\")
+				sprite.texture = preload(\"res://Assets/Sprites/Tabuleiro/unknown.png\")
 			else:
-				sprite.texture = preload(\"res://Sprites/Tabuleiro/water.png\")
+				sprite.texture = preload(\"res://Assets/Sprites/Tabuleiro/water.png\")
 		
 		CellState.SHIP:
 			if is_enemy:
-				sprite.texture = preload(\"res://Sprites/Tabuleiro/unknown.png\")
+				sprite.texture = preload(\"res://Assets/Sprites/Tabuleiro/unknown.png\")
 			else:
 				match ship_type:
 					ShipType.PIRATE:
 						match ship_part:
 							1:
-								sprite.texture = preload(\"res://Sprites/Navios/pirata-1.png\")
+								sprite.texture = preload(\"res://Assets/Sprites/Navios/pirata-1.png\")
 							2:
-								sprite.texture = preload(\"res://Sprites/Navios/pirata-2.png\")
+								sprite.texture = preload(\"res://Assets/Sprites/Navios/pirata-2.png\")
 							3:
-								sprite.texture = preload(\"res://Sprites/Navios/pirata-3.png\")
+								sprite.texture = preload(\"res://Assets/Sprites/Navios/pirata-3.png\")
 			
 					ShipType.LIGHTHOUSE:
 						match ship_part:
 							1:
-								sprite.texture = preload(\"res://Sprites/Navios/farol-1.png\")
+								sprite.texture = preload(\"res://Assets/Sprites/Navios/farol-1.png\")
 							2:
-								sprite.texture = preload(\"res://Sprites/Navios/farol-2.png\")
+								sprite.texture = preload(\"res://Assets/Sprites/Navios/farol-2.png\")
 		
 		CellState.HIT:
 			match ship_type:
 				ShipType.PIRATE:
 					match ship_part:
 						1:
-							sprite.texture = preload(\"res://Sprites/Navios/pirata-1-destruido.png\")
+							sprite.texture = preload(\"res://Assets/Sprites/Navios/pirata-1-destruido.png\")
 						2:
-							sprite.texture = preload(\"res://Sprites/Navios/pirata-2-destruido.png\")
+							sprite.texture = preload(\"res://Assets/Sprites/Navios/pirata-2-destruido.png\")
 						3:
-							sprite.texture = preload(\"res://Sprites/Navios/pirata-3-destruido.png\")
+							sprite.texture = preload(\"res://Assets/Sprites/Navios/pirata-3-destruido.png\")
 		
 				ShipType.LIGHTHOUSE:
 					match ship_part:
 						1:
-							sprite.texture = preload(\"res://Sprites/Navios/farol-1-destruido.png\")
+							sprite.texture = preload(\"res://Assets/Sprites/Navios/farol-1-destruido.png\")
 						2:
-							sprite.texture = preload(\"res://Sprites/Navios/farol-2-destruido.png\")
+							sprite.texture = preload(\"res://Assets/Sprites/Navios/farol-2-destruido.png\")
 		
 		CellState.MISS:
 			if was_attacked_by_enemy:
-				sprite.texture = preload(\"res://Sprites/Tabuleiro/watermarked.png\")
+				sprite.texture = preload(\"res://Assets/Sprites/Tabuleiro/watermarked.png\")
 			else:
-				sprite.texture = preload(\"res://Sprites/Tabuleiro/water.png\")
+				sprite.texture = preload(\"res://Assets/Sprites/Tabuleiro/water.png\")
 				
 		CellState.OBSERVED:
 			if ship_type == ShipType.NONE:
-				sprite.texture = preload(\"res://Sprites/Tabuleiro/water.png\")
+				sprite.texture = preload(\"res://Assets/Sprites/Tabuleiro/water.png\")
 			else:
 				match ship_type:
 					ShipType.PIRATE:
 						match ship_part:
 							1:
-								sprite.texture = preload(\"res://Sprites/Navios/pirata-1.png\")
+								sprite.texture = preload(\"res://Assets/Sprites/Navios/pirata-1.png\")
 							2:
-								sprite.texture = preload(\"res://Sprites/Navios/pirata-2.png\")
+								sprite.texture = preload(\"res://Assets/Sprites/Navios/pirata-2.png\")
 							3:
-								sprite.texture = preload(\"res://Sprites/Navios/pirata-3.png\")
+								sprite.texture = preload(\"res://Assets/Sprites/Navios/pirata-3.png\")
 
 					ShipType.LIGHTHOUSE:
 						match ship_part:
 							1:
-								sprite.texture = preload(\"res://Sprites/Navios/farol-1.png\")
+								sprite.texture = preload(\"res://Assets/Sprites/Navios/farol-1.png\")
 							2:
-								sprite.texture = preload(\"res://Sprites/Navios/farol-2.png\")
+								sprite.texture = preload(\"res://Assets/Sprites/Navios/farol-2.png\")
 			
 	if is_selected:
 		modulate = Color(0.5, 1, 0.5)  # verde claro
