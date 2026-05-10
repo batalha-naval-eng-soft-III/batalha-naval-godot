@@ -4,14 +4,13 @@ Se você tiver várias sugestões, crie um PR separado para cada uma delas.
 
 Explique claramente o que este PR altera.
 Inclua contexto, imagens ou vídeos se necessário.
+Ao fazer alterações visuais, sempre inclua imagens ou vídeos.
 
 Se o seu PR fecha uma issue, adicione Closes #<número da issue> ao texto. Exemplo:
 Closes #123
 Closes #456
--->
 
-
-
+Comece a escrever abaixo desta linha -->
 
 
 ## Checklist
@@ -21,5 +20,4 @@ Closes #456
 - [ ] Revisei e testei as minhas alterações e elas funcionam
 
 <!-- 
-Se você marcou "não" para alguma das opções acima, explique o motivo.
--->
+Se você marcou "não" para alguma das opções acima, explique o motivo na linha abaixo -->
