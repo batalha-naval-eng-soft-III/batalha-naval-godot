@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://csgoly7dydsk7"]
 
 [ext_resource type="Texture2D" uid="uid://dlnpf0y08l250" path="res://Sprites/Placeholder/Placeholder.png" id="1_q4cfh"]
-[ext_resource type="Texture2D" uid="uid://dgfgwdqr5ik0d" path="res://Sprites/1explosion.png" id="2_g62hh"]
+[ext_resource type="PackedScene" uid="uid://dbki8o7rdgqm5" path="res://Scenes/item_loja.tscn" id="2_g62hh"]
 
 [node name="TelaLoja" type="Node2D" unique_id=204960472]
 
@@ -11,6 +11,14 @@ scale = Vector2(6.47, 0.86499995)
 texture = ExtResource("1_q4cfh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1909817496]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=997905885]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.17319292, 0.111599244, 0.5690529, 1)
 
 [node name="MoedaOuro" type="Label" parent="CanvasLayer" unique_id=747884486]
 offset_left = 684.0
@@ -98,20 +106,6 @@ theme_override_font_sizes/font_size = 32
 text = "Efeitos
 "
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer" unique_id=583336100]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1033.0
-offset_top = -555.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer2" unique_id=404553320]
-layout_mode = 2
-
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer" unique_id=1076697713]
 anchors_preset = 3
 anchor_left = 1.0
@@ -120,26 +114,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -1020.0
 offset_top = -543.0
+offset_right = -88.0
+offset_bottom = -169.0
 grow_horizontal = 0
 grow_vertical = 0
 columns = 5
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/GridContainer" unique_id=1326236358]
+[node name="ItemLoja" parent="CanvasLayer/GridContainer" unique_id=487360648 instance=ExtResource("2_g62hh")]
 layout_mode = 2
-texture = ExtResource("2_g62hh")
-stretch_mode = 1
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/GridContainer" unique_id=1915357049]
+[node name="ItemLoja2" parent="CanvasLayer/GridContainer" unique_id=1047451500 instance=ExtResource("2_g62hh")]
 layout_mode = 2
-texture = ExtResource("2_g62hh")
-stretch_mode = 1
 
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/GridContainer" unique_id=79100315]
+[node name="ItemLoja3" parent="CanvasLayer/GridContainer" unique_id=1806811013 instance=ExtResource("2_g62hh")]
 layout_mode = 2
-texture = ExtResource("2_g62hh")
-stretch_mode = 1
 
-[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/GridContainer" unique_id=905638310]
+[node name="ItemLoja4" parent="CanvasLayer/GridContainer" unique_id=2053635137 instance=ExtResource("2_g62hh")]
 layout_mode = 2
-texture = ExtResource("2_g62hh")
-stretch_mode = 1
