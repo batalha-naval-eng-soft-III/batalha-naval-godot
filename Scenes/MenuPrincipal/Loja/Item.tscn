@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://dbki8o7rdgqm5"]
+
+[ext_resource type="Texture2D" uid="uid://dgfgwdqr5ik0d" path="res://Sprites/Explosao/explosion-1.png" id="1_loxgc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wkfx5"]
+bg_color = Color(0.560829, 0.3783279, 0.07247969, 1)
+
+[node name="ItemLoja" type="Control" unique_id=487360648]
+custom_minimum_size = Vector2(87, 142)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 87.0
+offset_bottom = 142.0
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=346859399]
+layout_mode = 0
+offset_right = 87.0
+offset_bottom = 142.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wkfx5")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1746188358]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer" unique_id=948620672]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/GridContainer" unique_id=1625744720]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/GridContainer/VBoxContainer" unique_id=1664541733]
+layout_mode = 2
+texture = ExtResource("1_loxgc")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/GridContainer/VBoxContainer" unique_id=821052501]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 8
+text = "Couraçado"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/GridContainer/VBoxContainer" unique_id=133752173]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 5
+text = "Navio - Artilharia - X células"
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/GridContainer/VBoxContainer" unique_id=1107649179]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "COMPRAR"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer/GridContainer" unique_id=910734638]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/GridContainer/VBoxContainer2" unique_id=712945290]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "NomeHabilidade"
+
+[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/GridContainer/VBoxContainer2" unique_id=1201754999]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "DescriçãoHabilidade DescriçãoHabilidade DescriçãoHabilidade DescriçãoHabilidade DescriçãoHabilidade "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
