@@ -7,6 +7,7 @@ var base_url = "https://battleship-multiplayer-cc51c-default-rtdb.firebaseio.com
 var listening := false
 var current_room := ""
 var my_id := ""
+var is_host := false
 
 var poll_interval := 4
 var polling_active := false
@@ -27,7 +28,7 @@ func create_room(room_id: String, player_id: String, password: String):
 		"state": "waiting",
 		"turn": player_id
 	}
-
+	is_host = true
 	_send_request(url, HTTPClient.METHOD_PUT, data)
 
 
@@ -35,7 +36,7 @@ func join_room(room_id: String, player_id: String):
 	var url = base_url + "rooms/" + room_id + "/players/" + player_id + ".json"
 
 	var data = true
-
+	is_host = false
 	_send_request(url, HTTPClient.METHOD_PUT, data)
 
 
@@ -123,19 +124,17 @@ func _poll_room():
 
 func _request_room():
 	var url = base_url + "rooms/" + current_room + ".json"
-
 	var http = HTTPRequest.new()
 	add_child(http)
 
 	http.request_completed.connect(func(result, code, headers, body):
-		var data = JSON.parse_string(body.get_string_from_utf8())
+		var text = body.get_string_from_utf8()
+		var data = JSON.parse_string(text)
 
-		if data != null:
-			_handle_room_update(data)
-
+		# Se data for null, a sala foi deletada pelo Host
+		_handle_room_update(data) 
 		http.queue_free()
 	)
-
 	http.request(url)
 
 
@@ -215,3 +214,33 @@ func try_join_room(room_id: String, player_id: String, password: String):
 	)
 
 	http.request(url)
+func leave_current_room():
+	if current_room == "" or my_id == "":
+		return
+
+	stop_listening()
+
+	# Se for o Host, deleta a sala inteira (isso já limpa o nó 'ready' automaticamente)
+	if is_host:
+		var url = base_url + "rooms/" + current_room + ".json"
+		_send_delete_request(url)
+	else:
+		# Se for o convidado, precisa deletar de dois lugares:
+		# 1. Da lista de jogadores
+		var url_player = base_url + "rooms/" + current_room + "/players/" + my_id + ".json"
+		_send_delete_request(url_player)
+		
+		# 2. Da lista de 'ready' (Para resolver o seu segundo problema)
+		var url_ready = base_url + "rooms/" + current_room + "/ready/" + my_id + ".json"
+		_send_delete_request(url_ready)
+
+	current_room = ""
+
+# Função auxiliar para não repetir código de DELETE
+func _send_delete_request(url: String):
+	var http = HTTPRequest.new()
+	add_child(http)
+	http.request_completed.connect(func(result, code, headers, body):
+		http.queue_free()
+	)
+	http.request(url, [], HTTPClient.METHOD_DELETE)

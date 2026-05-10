@@ -1,7 +1,5 @@
 extends Node2D
 
-
-
 func _ready() -> void:
 	pass # Replace with function body.
 
@@ -53,10 +51,12 @@ func _on_create_button_pressed() -> void:
 	
 	print("ROOM:", room_name)
 	print("PLAYER:", player_id)
-	
-	$Firebase.create_room(room_name, player_id, room_pass)
+	Firebase.current_room = room_name
+	Firebase.create_room(room_name, player_id, room_pass)
 	
 	print("Sala criada!")
+	
+	get_tree().change_scene_to_file("res://Scenes/lobby.tscn")
 
 
 
@@ -65,7 +65,9 @@ func _on_join_button_pressed() -> void:
 	var room_pass = $PanelJoinroom/JoinroompassInput.text
 	
 	var player_id = Session.user_id
+	Firebase.current_room = room_name
+	Firebase.try_join_room(room_name, player_id, room_pass)
 	
-	$Firebase.try_join_room(room_name, player_id, room_pass)
+	get_tree().change_scene_to_file("res://Scenes/lobby.tscn")
 	
 	
