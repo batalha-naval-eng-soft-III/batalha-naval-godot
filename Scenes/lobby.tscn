@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://dbttuvhysdmrw"]
+
+[ext_resource type="Texture2D" uid="uid://dgrqtfieivvq3" path="res://Sprites/background.png" id="1_nvaej"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y0s6v"]
+bg_color = Color(0, 0.6627451, 0.14509805, 1)
+
+[node name="Lobby" type="Control" unique_id=1012324857]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1556380903]
+layout_mode = 0
+offset_left = -3.0
+offset_top = -2.0
+offset_right = 1283.0
+offset_bottom = 720.0
+texture = ExtResource("1_nvaej")
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1585708004]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1231228589]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="sala" type="Label" parent="MarginContainer/VBoxContainer" unique_id=522279625]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "LOBBY"
+horizontal_alignment = 1
+
+[node name="espacador" type="Control" parent="MarginContainer/VBoxContainer" unique_id=2050329367]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="panelHost" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=1363423422]
+custom_minimum_size = Vector2(600, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_y0s6v")
+
+[node name="contHost" type="HBoxContainer" parent="MarginContainer/VBoxContainer/panelHost" unique_id=157565618]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="hostName" type="Label" parent="MarginContainer/VBoxContainer/panelHost/contHost" unique_id=1289562129]
+layout_mode = 2
+text = "jogador 1"
+
+[node name="hostStatus" type="Label" parent="MarginContainer/VBoxContainer/panelHost/contHost" unique_id=505215688]
+layout_direction = 3
+layout_mode = 2
+text = "status: pronto"
+
+[node name="panelP2" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=448705049]
+custom_minimum_size = Vector2(600, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_y0s6v")
+
+[node name="contP2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/panelP2" unique_id=566331222]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="p2Name" type="Label" parent="MarginContainer/VBoxContainer/panelP2/contP2" unique_id=1422241199]
+layout_mode = 2
+text = "jogador 1"
+
+[node name="p2Status" type="Label" parent="MarginContainer/VBoxContainer/panelP2/contP2" unique_id=349308748]
+layout_direction = 3
+layout_mode = 2
+text = "status: pronto"
+
+[node name="espacador2" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1431915046]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=94883762]
+layout_mode = 2
