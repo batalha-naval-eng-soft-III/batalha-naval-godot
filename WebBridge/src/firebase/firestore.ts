@@ -1,10 +1,32 @@
-import { getFirestore, doc, collection, getDoc, getDocs, onSnapshot, type Unsubscribe } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  getFirestore,
+  onSnapshot,
+  type Unsubscribe,
+} from 'firebase/firestore';
 
-import { firebaseApp } from "./app";
+import { firebaseApp } from './app';
 
 export const firestore = getFirestore(firebaseApp);
 
 const subscriptions = new Map<string, Unsubscribe>();
+
+function withFirestoreId<T extends Record<string, unknown>>(
+  id: string,
+  data: T,
+): T & { id: string } {
+  return {
+    ...data,
+    id,
+  };
+}
+
+function stringify(payload: unknown): string {
+  return JSON.stringify(payload);
+}
 
 export async function getDocument(path: string): Promise<string | null> {
   const ref = doc(firestore, path);
@@ -14,22 +36,18 @@ export async function getDocument(path: string): Promise<string | null> {
     return null;
   }
 
-  return JSON.stringify({
-    id: snapshot.id,
-    ...snapshot.data(),
-  });
+  return stringify(withFirestoreId(snapshot.id, snapshot.data()));
 }
 
 export async function getCollection(path: string): Promise<string> {
   const ref = collection(firestore, path);
   const snapshot = await getDocs(ref);
 
-  const documents = snapshot.docs.map((document) => ({
-    id: document.id,
-    ...document.data(),
-  }));
+  const documents = snapshot.docs.map((document) =>
+    withFirestoreId(document.id, document.data()),
+  );
 
-  return JSON.stringify(documents);
+  return stringify(documents);
 }
 
 export function listenToDocument(
@@ -47,7 +65,7 @@ export function listenToDocument(
     (snapshot) => {
       if (!snapshot.exists()) {
         onData(
-          JSON.stringify({
+          stringify({
             exists: false,
             id: snapshot.id,
             data: null,
@@ -57,7 +75,7 @@ export function listenToDocument(
       }
 
       onData(
-        JSON.stringify({
+        stringify({
           exists: true,
           id: snapshot.id,
           data: snapshot.data(),
@@ -65,6 +83,7 @@ export function listenToDocument(
       );
     },
     (error) => {
+      subscriptions.delete(subscriptionId);
       onError?.(error.message);
     },
   );
@@ -85,14 +104,14 @@ export function listenToCollection(
   const unsubscribeFn = onSnapshot(
     ref,
     (snapshot) => {
-      const documents = snapshot.docs.map((document) => ({
-        id: document.id,
-        ...document.data(),
-      }));
+      const documents = snapshot.docs.map((document) =>
+        withFirestoreId(document.id, document.data()),
+      );
 
-      onData(JSON.stringify(documents));
+      onData(stringify(documents));
     },
     (error) => {
+      subscriptions.delete(subscriptionId);
       onError?.(error.message);
     },
   );
@@ -112,9 +131,8 @@ export function unsubscribe(subscriptionId: string): void {
 }
 
 export function unsubscribeAll(): void {
-  for (const unsubscribeFn of subscriptions.values()) {
+  for (const [subscriptionId, unsubscribeFn] of subscriptions) {
     unsubscribeFn();
+    subscriptions.delete(subscriptionId);
   }
-
-  subscriptions.clear();
 }
