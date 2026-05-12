@@ -6,10 +6,7 @@ import {
   unsubscribe,
   unsubscribeAll,
 } from "../firebase/firestore";
-
-type GodotCallback = {
-  call: (...args: unknown[]) => void;
-};
+import type { GodotCallback } from "./types";
 
 function callGodot(callback: GodotCallback | undefined, value: string): void {
   callback?.call(value);
