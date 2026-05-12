@@ -7,6 +7,6 @@
     "web:dev": "node Tools/export-web.mjs --serve"
   },
   "devDependencies": {
-    "serve": "latest"
+    "serve": "14.2.4"
   }
 }
