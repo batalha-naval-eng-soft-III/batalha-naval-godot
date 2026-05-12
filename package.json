@@ -2,7 +2,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "web:bridge": "bun --prefix web run build",
+    "web:bridge": "bun --cwd WebBridge run build",
     "web:export": "node Tools/export-web.mjs",
     "web:dev": "node Tools/export-web.mjs --serve"
   },
