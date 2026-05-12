@@ -1,4 +1,3 @@
-// src/features/firestoreBridge.ts
 import {
   getDocument,
   getCollection,
