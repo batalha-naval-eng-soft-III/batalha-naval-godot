@@ -28,3 +28,6 @@ Thumbs.db
 # Arquivos temporários
 *.tmp
 *.bak
+
+node_modules/
+web-build/
