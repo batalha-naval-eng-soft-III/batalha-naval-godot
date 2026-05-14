@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://cg14qbp30hpc3"]
 
-[ext_resource type="Texture2D" path="res://Sprites/background.png" id="1_s2tuw"]
-[ext_resource type="Texture2D" path="res://Sprites/backgroundenemy.png" id="2_dkolh"]
-[ext_resource type="Texture2D" uid="uid://b5l8krgohtuwl" path="res://Sprites/BgItem.png" id="3_1ijqn"]
-[ext_resource type="FontFile" path="res://Fonts/PressStart2P-Regular.ttf" id="4_j3ikc"]
-[ext_resource type="Texture2D" path="res://Sprites/pirateship.png" id="5_6qyum"]
-[ext_resource type="Texture2D" path="res://Sprites/piraterafury.png" id="6_plam0"]
+[ext_resource type="Texture2D" uid="uid://dgrqtfieivvq3" path="res://Assets/Sprites/PlanosDeFundo/background.png" id="1_7gwoc"]
+[ext_resource type="Texture2D" uid="uid://buw4rv2mfdrqx" path="res://Assets/Sprites/PlanosDeFundo/backgroundenemy.png" id="2_7gwoc"]
+[ext_resource type="Texture2D" uid="uid://b5l8krgohtuwl" path="res://Assets/Sprites/PlanosDeFundo/BgItem.png" id="3_1ijqn"]
+[ext_resource type="FontFile" uid="uid://dyabe740cbaux" path="res://Assets/Fonts/PressStart2P-Regular.woff2" id="4_1ijqn"]
+[ext_resource type="Texture2D" uid="uid://buuunwcrgiomb" path="res://Assets/Sprites/Tabuleiro/pirateship.png" id="5_dkolh"]
+[ext_resource type="Texture2D" uid="uid://2j1505bs0hnx" path="res://Assets/Sprites/Tabuleiro/piraterafury.png" id="6_1ijqn"]
 
 [node name="Node2D" type="Node2D" unique_id=588054822]
 
@@ -14,22 +14,23 @@ offset_left = -3.0
 offset_top = -2.0
 offset_right = 1283.0
 offset_bottom = 720.0
-texture = ExtResource("1_s2tuw")
+texture = ExtResource("1_7gwoc")
 stretch_mode = 1
 
-[node name="Background2" type="TextureRect" parent="." unique_id=626254329]
+[node name="HeaderBg" type="TextureRect" parent="." unique_id=626254329]
 offset_left = -3.0
 offset_top = -2.0
 offset_right = 1283.0
 offset_bottom = 68.0
-texture = ExtResource("2_dkolh")
+texture = ExtResource("2_7gwoc")
 stretch_mode = 1
 
-[node name="Button" type="Button" parent="." unique_id=2001158574]
+[node name="BackButton" type="Button" parent="." unique_id=2001158574]
 offset_left = 1131.0
 offset_top = 23.0
 offset_right = 1231.0
 offset_bottom = 54.0
+theme_override_fonts/font = ExtResource("4_1ijqn")
 text = "VOLTAR"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1901926879]
@@ -71,7 +72,7 @@ theme_override_constants/separation = 20
 
 [node name="ShipName" type="Label" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem/MarginContainer/VBoxContainer" unique_id=1859436585]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 theme_override_font_sizes/font_size = 20
 text = "Barco Pirata"
 horizontal_alignment = 1
@@ -79,7 +80,7 @@ horizontal_alignment = 1
 [node name="ShipTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem/MarginContainer/VBoxContainer" unique_id=2049733128]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-texture = ExtResource("5_6qyum")
+texture = ExtResource("5_dkolh")
 
 [node name="SkillContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem/MarginContainer/VBoxContainer" unique_id=643921189]
 layout_mode = 2
@@ -88,7 +89,7 @@ theme_override_constants/separation = 10
 [node name="SkillTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem/MarginContainer/VBoxContainer/SkillContainer" unique_id=402319404]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-texture = ExtResource("6_plam0")
+texture = ExtResource("6_1ijqn")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem/MarginContainer/VBoxContainer/SkillContainer" unique_id=1199743883]
 layout_mode = 2
@@ -97,14 +98,14 @@ theme_override_constants/separation = 10
 [node name="Label" type="Label" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=329482491]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.6862745, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 text = "Fúria Pirata"
 horizontal_alignment = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=675554898]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("4_j3ikc")
+theme_override_fonts/normal_font = ExtResource("4_1ijqn")
 theme_override_font_sizes/normal_font_size = 12
 text = "Ataque em X, demora 5 turnos para recarregar"
 fit_content = true
@@ -116,29 +117,29 @@ theme_override_constants/separation = 20
 [node name="EquipButton" type="Button" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem/MarginContainer/VBoxContainer/StatusContainer" unique_id=1171255992]
 custom_minimum_size = Vector2(150, 30)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 theme_override_font_sizes/font_size = 14
 text = "EQUIPAR"
 
 [node name="StatusLabel" type="Label" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem/MarginContainer/VBoxContainer/StatusContainer" unique_id=1447036484]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 theme_override_font_sizes/font_size = 14
 text = "ADQUIRIDO"
 horizontal_alignment = 2
 
-[node name="ShipItem2" type="Control" parent="ScrollContainer/ItemList/ItemListColumn" unique_id=2127831991]
+[node name="ShipItem2" type="Control" parent="ScrollContainer/ItemList/ItemListColumn" unique_id=1187317001]
 custom_minimum_size = Vector2(0, 310)
 layout_mode = 2
 
-[node name="ShipBg" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem2" unique_id=913619250]
+[node name="ShipBg" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem2" unique_id=58217690]
 layout_mode = 0
 offset_right = 400.0
 offset_bottom = 310.0
 texture = ExtResource("3_1ijqn")
 
-[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem2" unique_id=125383804]
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem2" unique_id=104764690]
 layout_mode = 0
 offset_right = 400.0
 offset_bottom = 200.0
@@ -147,80 +148,80 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem2/MarginContainer" unique_id=1401843093]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem2/MarginContainer" unique_id=1457370351]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="ShipName" type="Label" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem2/MarginContainer/VBoxContainer" unique_id=2042761860]
+[node name="ShipName" type="Label" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem2/MarginContainer/VBoxContainer" unique_id=563215691]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 theme_override_font_sizes/font_size = 20
 text = "Barco Pirata"
 horizontal_alignment = 1
 
-[node name="ShipTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem2/MarginContainer/VBoxContainer" unique_id=257680517]
+[node name="ShipTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem2/MarginContainer/VBoxContainer" unique_id=551222129]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-texture = ExtResource("5_6qyum")
+texture = ExtResource("5_dkolh")
 
-[node name="SkillContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem2/MarginContainer/VBoxContainer" unique_id=1554954172]
+[node name="SkillContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem2/MarginContainer/VBoxContainer" unique_id=1358534119]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="SkillTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem2/MarginContainer/VBoxContainer/SkillContainer" unique_id=1715020341]
+[node name="SkillTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem2/MarginContainer/VBoxContainer/SkillContainer" unique_id=1940743954]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-texture = ExtResource("6_plam0")
+texture = ExtResource("6_1ijqn")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem2/MarginContainer/VBoxContainer/SkillContainer" unique_id=606309067]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem2/MarginContainer/VBoxContainer/SkillContainer" unique_id=1446336202]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem2/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=1791168750]
+[node name="Label" type="Label" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem2/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=702268947]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.6862745, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 text = "Fúria Pirata"
 horizontal_alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem2/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=1130760089]
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem2/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=2129117535]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("4_j3ikc")
+theme_override_fonts/normal_font = ExtResource("4_1ijqn")
 theme_override_font_sizes/normal_font_size = 12
 text = "Ataque em X, demora 5 turnos para recarregar"
 fit_content = true
 
-[node name="StatusContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem2/MarginContainer/VBoxContainer" unique_id=1821263925]
+[node name="StatusContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem2/MarginContainer/VBoxContainer" unique_id=1863723680]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="EquipButton" type="Button" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem2/MarginContainer/VBoxContainer/StatusContainer" unique_id=1425350137]
+[node name="EquipButton" type="Button" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem2/MarginContainer/VBoxContainer/StatusContainer" unique_id=76781833]
 custom_minimum_size = Vector2(150, 30)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 theme_override_font_sizes/font_size = 14
 text = "EQUIPAR"
 
-[node name="StatusLabel" type="Label" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem2/MarginContainer/VBoxContainer/StatusContainer" unique_id=858559681]
+[node name="StatusLabel" type="Label" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem2/MarginContainer/VBoxContainer/StatusContainer" unique_id=690386667]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 theme_override_font_sizes/font_size = 14
 text = "ADQUIRIDO"
 horizontal_alignment = 2
 
-[node name="ShipItem3" type="Control" parent="ScrollContainer/ItemList/ItemListColumn" unique_id=1103413031]
+[node name="ShipItem3" type="Control" parent="ScrollContainer/ItemList/ItemListColumn" unique_id=617275992]
 custom_minimum_size = Vector2(0, 310)
 layout_mode = 2
 
-[node name="ShipBg" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3" unique_id=1375704365]
+[node name="ShipBg" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3" unique_id=1181417762]
 layout_mode = 0
 offset_right = 400.0
 offset_bottom = 310.0
 texture = ExtResource("3_1ijqn")
 
-[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3" unique_id=1760518828]
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3" unique_id=567898633]
 layout_mode = 0
 offset_right = 400.0
 offset_bottom = 200.0
@@ -229,80 +230,80 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/MarginContainer" unique_id=169332411]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/MarginContainer" unique_id=184929444]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="ShipName" type="Label" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/MarginContainer/VBoxContainer" unique_id=909582483]
+[node name="ShipName" type="Label" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/MarginContainer/VBoxContainer" unique_id=271719799]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 theme_override_font_sizes/font_size = 20
 text = "Barco Pirata"
 horizontal_alignment = 1
 
-[node name="ShipTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/MarginContainer/VBoxContainer" unique_id=1398710489]
+[node name="ShipTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/MarginContainer/VBoxContainer" unique_id=35821011]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-texture = ExtResource("5_6qyum")
+texture = ExtResource("5_dkolh")
 
-[node name="SkillContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/MarginContainer/VBoxContainer" unique_id=298434244]
+[node name="SkillContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/MarginContainer/VBoxContainer" unique_id=643028698]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="SkillTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/MarginContainer/VBoxContainer/SkillContainer" unique_id=1366939490]
+[node name="SkillTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/MarginContainer/VBoxContainer/SkillContainer" unique_id=285944860]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-texture = ExtResource("6_plam0")
+texture = ExtResource("6_1ijqn")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/MarginContainer/VBoxContainer/SkillContainer" unique_id=705849274]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/MarginContainer/VBoxContainer/SkillContainer" unique_id=104467081]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=1462301898]
+[node name="Label" type="Label" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=985590371]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.6862745, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 text = "Fúria Pirata"
 horizontal_alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=1866911803]
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=943679988]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("4_j3ikc")
+theme_override_fonts/normal_font = ExtResource("4_1ijqn")
 theme_override_font_sizes/normal_font_size = 12
 text = "Ataque em X, demora 5 turnos para recarregar"
 fit_content = true
 
-[node name="StatusContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/MarginContainer/VBoxContainer" unique_id=651026672]
+[node name="StatusContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/MarginContainer/VBoxContainer" unique_id=1518082360]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="EquipButton" type="Button" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/MarginContainer/VBoxContainer/StatusContainer" unique_id=1669255672]
+[node name="EquipButton" type="Button" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/MarginContainer/VBoxContainer/StatusContainer" unique_id=1593932480]
 custom_minimum_size = Vector2(150, 30)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 theme_override_font_sizes/font_size = 14
 text = "EQUIPAR"
 
-[node name="StatusLabel" type="Label" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/MarginContainer/VBoxContainer/StatusContainer" unique_id=1460414584]
+[node name="StatusLabel" type="Label" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/MarginContainer/VBoxContainer/StatusContainer" unique_id=1623137577]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 theme_override_font_sizes/font_size = 14
 text = "ADQUIRIDO"
 horizontal_alignment = 2
 
-[node name="ShipItem" type="Control" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3" unique_id=226539121]
+[node name="ShipItem4" type="Control" parent="ScrollContainer/ItemList/ItemListColumn" unique_id=1012739706]
 custom_minimum_size = Vector2(0, 310)
-anchors_preset = 0
+layout_mode = 2
 
-[node name="ShipBg" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/ShipItem" unique_id=1737307757]
+[node name="ShipBg" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem4" unique_id=1339408021]
 layout_mode = 0
 offset_right = 400.0
 offset_bottom = 310.0
 texture = ExtResource("3_1ijqn")
 
-[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/ShipItem" unique_id=577269125]
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem4" unique_id=321789358]
 layout_mode = 0
 offset_right = 400.0
 offset_bottom = 200.0
@@ -311,147 +312,65 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/ShipItem/MarginContainer" unique_id=1154467541]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem4/MarginContainer" unique_id=1093969173]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="ShipName" type="Label" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/ShipItem/MarginContainer/VBoxContainer" unique_id=535019725]
+[node name="ShipName" type="Label" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem4/MarginContainer/VBoxContainer" unique_id=1348910675]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 theme_override_font_sizes/font_size = 20
 text = "Barco Pirata"
 horizontal_alignment = 1
 
-[node name="ShipTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/ShipItem/MarginContainer/VBoxContainer" unique_id=1633374994]
+[node name="ShipTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem4/MarginContainer/VBoxContainer" unique_id=941327368]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-texture = ExtResource("5_6qyum")
+texture = ExtResource("5_dkolh")
 
-[node name="SkillContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/ShipItem/MarginContainer/VBoxContainer" unique_id=184873458]
+[node name="SkillContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem4/MarginContainer/VBoxContainer" unique_id=1790214873]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="SkillTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/ShipItem/MarginContainer/VBoxContainer/SkillContainer" unique_id=725993492]
+[node name="SkillTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem4/MarginContainer/VBoxContainer/SkillContainer" unique_id=801411546]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-texture = ExtResource("6_plam0")
+texture = ExtResource("6_1ijqn")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/ShipItem/MarginContainer/VBoxContainer/SkillContainer" unique_id=368843258]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem4/MarginContainer/VBoxContainer/SkillContainer" unique_id=1023562076]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/ShipItem/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=1878938803]
+[node name="Label" type="Label" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem4/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=173436312]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.6862745, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 text = "Fúria Pirata"
 horizontal_alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/ShipItem/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=290897187]
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem4/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=1709792670]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("4_j3ikc")
+theme_override_fonts/normal_font = ExtResource("4_1ijqn")
 theme_override_font_sizes/normal_font_size = 12
 text = "Ataque em X, demora 5 turnos para recarregar"
 fit_content = true
 
-[node name="StatusContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/ShipItem/MarginContainer/VBoxContainer" unique_id=919925936]
+[node name="StatusContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem4/MarginContainer/VBoxContainer" unique_id=91407077]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="EquipButton" type="Button" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/ShipItem/MarginContainer/VBoxContainer/StatusContainer" unique_id=810817449]
+[node name="EquipButton" type="Button" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem4/MarginContainer/VBoxContainer/StatusContainer" unique_id=975267519]
 custom_minimum_size = Vector2(150, 30)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 theme_override_font_sizes/font_size = 14
 text = "EQUIPAR"
 
-[node name="StatusLabel" type="Label" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem3/ShipItem/MarginContainer/VBoxContainer/StatusContainer" unique_id=30015063]
+[node name="StatusLabel" type="Label" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem4/MarginContainer/VBoxContainer/StatusContainer" unique_id=1017588388]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j3ikc")
-theme_override_font_sizes/font_size = 14
-text = "ADQUIRIDO"
-horizontal_alignment = 2
-
-[node name="ShipItem4" type="Control" parent="ScrollContainer/ItemList/ItemListColumn" unique_id=1628139723]
-custom_minimum_size = Vector2(0, 310)
-layout_mode = 2
-
-[node name="ShipBg" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem4" unique_id=782941369]
-layout_mode = 0
-offset_right = 400.0
-offset_bottom = 310.0
-texture = ExtResource("3_1ijqn")
-
-[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem4" unique_id=1152458227]
-layout_mode = 0
-offset_right = 400.0
-offset_bottom = 200.0
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem4/MarginContainer" unique_id=1747813188]
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="ShipName" type="Label" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem4/MarginContainer/VBoxContainer" unique_id=1993727864]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j3ikc")
-theme_override_font_sizes/font_size = 20
-text = "Barco Pirata"
-horizontal_alignment = 1
-
-[node name="ShipTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem4/MarginContainer/VBoxContainer" unique_id=1831427991]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-texture = ExtResource("5_6qyum")
-
-[node name="SkillContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem4/MarginContainer/VBoxContainer" unique_id=315449714]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="SkillTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem4/MarginContainer/VBoxContainer/SkillContainer" unique_id=1360620135]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-texture = ExtResource("6_plam0")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem4/MarginContainer/VBoxContainer/SkillContainer" unique_id=2054876810]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="Label" type="Label" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem4/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=2054789498]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.6862745, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_j3ikc")
-text = "Fúria Pirata"
-horizontal_alignment = 1
-
-[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem4/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=1576156114]
-custom_minimum_size = Vector2(250, 0)
-layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("4_j3ikc")
-theme_override_font_sizes/normal_font_size = 12
-text = "Ataque em X, demora 5 turnos para recarregar"
-fit_content = true
-
-[node name="StatusContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem4/MarginContainer/VBoxContainer" unique_id=529955059]
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="EquipButton" type="Button" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem4/MarginContainer/VBoxContainer/StatusContainer" unique_id=198421458]
-custom_minimum_size = Vector2(150, 30)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j3ikc")
-theme_override_font_sizes/font_size = 14
-text = "EQUIPAR"
-
-[node name="StatusLabel" type="Label" parent="ScrollContainer/ItemList/ItemListColumn/ShipItem4/MarginContainer/VBoxContainer/StatusContainer" unique_id=1112167824]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 theme_override_font_sizes/font_size = 14
 text = "ADQUIRIDO"
 horizontal_alignment = 2
@@ -460,17 +379,17 @@ horizontal_alignment = 2
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="ShipItem" type="Control" parent="ScrollContainer/ItemList/ItemListColumn2" unique_id=244257606]
+[node name="ShipItem" type="Control" parent="ScrollContainer/ItemList/ItemListColumn2" unique_id=1960128672]
 custom_minimum_size = Vector2(0, 310)
 layout_mode = 2
 
-[node name="ShipBg" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem" unique_id=814445407]
+[node name="ShipBg" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem" unique_id=515506131]
 layout_mode = 0
 offset_right = 400.0
 offset_bottom = 310.0
 texture = ExtResource("3_1ijqn")
 
-[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem" unique_id=1630801117]
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem" unique_id=1919013449]
 layout_mode = 0
 offset_right = 400.0
 offset_bottom = 200.0
@@ -479,80 +398,80 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem/MarginContainer" unique_id=1554200678]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem/MarginContainer" unique_id=1081943769]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="ShipName" type="Label" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem/MarginContainer/VBoxContainer" unique_id=259328125]
+[node name="ShipName" type="Label" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem/MarginContainer/VBoxContainer" unique_id=416361242]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 theme_override_font_sizes/font_size = 20
 text = "Barco Pirata"
 horizontal_alignment = 1
 
-[node name="ShipTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem/MarginContainer/VBoxContainer" unique_id=577401980]
+[node name="ShipTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem/MarginContainer/VBoxContainer" unique_id=610617885]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-texture = ExtResource("5_6qyum")
+texture = ExtResource("5_dkolh")
 
-[node name="SkillContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem/MarginContainer/VBoxContainer" unique_id=1143015800]
+[node name="SkillContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem/MarginContainer/VBoxContainer" unique_id=1757085181]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="SkillTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem/MarginContainer/VBoxContainer/SkillContainer" unique_id=2055717779]
+[node name="SkillTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem/MarginContainer/VBoxContainer/SkillContainer" unique_id=586048747]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-texture = ExtResource("6_plam0")
+texture = ExtResource("6_1ijqn")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem/MarginContainer/VBoxContainer/SkillContainer" unique_id=1760743310]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem/MarginContainer/VBoxContainer/SkillContainer" unique_id=857697381]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=551325740]
+[node name="Label" type="Label" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=301913797]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.6862745, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 text = "Fúria Pirata"
 horizontal_alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=1906306167]
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=1463183508]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("4_j3ikc")
+theme_override_fonts/normal_font = ExtResource("4_1ijqn")
 theme_override_font_sizes/normal_font_size = 12
 text = "Ataque em X, demora 5 turnos para recarregar"
 fit_content = true
 
-[node name="StatusContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem/MarginContainer/VBoxContainer" unique_id=1250012598]
+[node name="StatusContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem/MarginContainer/VBoxContainer" unique_id=1429755648]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="EquipButton" type="Button" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem/MarginContainer/VBoxContainer/StatusContainer" unique_id=1223197023]
+[node name="EquipButton" type="Button" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem/MarginContainer/VBoxContainer/StatusContainer" unique_id=682552433]
 custom_minimum_size = Vector2(150, 30)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 theme_override_font_sizes/font_size = 14
 text = "EQUIPAR"
 
-[node name="StatusLabel" type="Label" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem/MarginContainer/VBoxContainer/StatusContainer" unique_id=1490713412]
+[node name="StatusLabel" type="Label" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem/MarginContainer/VBoxContainer/StatusContainer" unique_id=1975479971]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 theme_override_font_sizes/font_size = 14
 text = "ADQUIRIDO"
 horizontal_alignment = 2
 
-[node name="ShipItem2" type="Control" parent="ScrollContainer/ItemList/ItemListColumn2" unique_id=1103610179]
+[node name="ShipItem2" type="Control" parent="ScrollContainer/ItemList/ItemListColumn2" unique_id=952326540]
 custom_minimum_size = Vector2(0, 310)
 layout_mode = 2
 
-[node name="ShipBg" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem2" unique_id=519963548]
+[node name="ShipBg" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem2" unique_id=906105590]
 layout_mode = 0
 offset_right = 400.0
 offset_bottom = 310.0
 texture = ExtResource("3_1ijqn")
 
-[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem2" unique_id=2088563834]
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem2" unique_id=1771777535]
 layout_mode = 0
 offset_right = 400.0
 offset_bottom = 200.0
@@ -561,80 +480,80 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem2/MarginContainer" unique_id=851071730]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem2/MarginContainer" unique_id=2038973061]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="ShipName" type="Label" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem2/MarginContainer/VBoxContainer" unique_id=321479556]
+[node name="ShipName" type="Label" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem2/MarginContainer/VBoxContainer" unique_id=956201685]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 theme_override_font_sizes/font_size = 20
 text = "Barco Pirata"
 horizontal_alignment = 1
 
-[node name="ShipTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem2/MarginContainer/VBoxContainer" unique_id=941567429]
+[node name="ShipTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem2/MarginContainer/VBoxContainer" unique_id=1759696004]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-texture = ExtResource("5_6qyum")
+texture = ExtResource("5_dkolh")
 
-[node name="SkillContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem2/MarginContainer/VBoxContainer" unique_id=601796894]
+[node name="SkillContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem2/MarginContainer/VBoxContainer" unique_id=39853223]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="SkillTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem2/MarginContainer/VBoxContainer/SkillContainer" unique_id=653794857]
+[node name="SkillTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem2/MarginContainer/VBoxContainer/SkillContainer" unique_id=1792513778]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-texture = ExtResource("6_plam0")
+texture = ExtResource("6_1ijqn")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem2/MarginContainer/VBoxContainer/SkillContainer" unique_id=1145803439]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem2/MarginContainer/VBoxContainer/SkillContainer" unique_id=1870017731]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem2/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=1443903325]
+[node name="Label" type="Label" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem2/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=1399409092]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.6862745, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 text = "Fúria Pirata"
 horizontal_alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem2/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=960461767]
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem2/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=415653577]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("4_j3ikc")
+theme_override_fonts/normal_font = ExtResource("4_1ijqn")
 theme_override_font_sizes/normal_font_size = 12
 text = "Ataque em X, demora 5 turnos para recarregar"
 fit_content = true
 
-[node name="StatusContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem2/MarginContainer/VBoxContainer" unique_id=235449928]
+[node name="StatusContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem2/MarginContainer/VBoxContainer" unique_id=1089358171]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="EquipButton" type="Button" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem2/MarginContainer/VBoxContainer/StatusContainer" unique_id=503187246]
+[node name="EquipButton" type="Button" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem2/MarginContainer/VBoxContainer/StatusContainer" unique_id=962295654]
 custom_minimum_size = Vector2(150, 30)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 theme_override_font_sizes/font_size = 14
 text = "EQUIPAR"
 
-[node name="StatusLabel" type="Label" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem2/MarginContainer/VBoxContainer/StatusContainer" unique_id=1431099675]
+[node name="StatusLabel" type="Label" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem2/MarginContainer/VBoxContainer/StatusContainer" unique_id=1886602322]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 theme_override_font_sizes/font_size = 14
 text = "ADQUIRIDO"
 horizontal_alignment = 2
 
-[node name="ShipItem3" type="Control" parent="ScrollContainer/ItemList/ItemListColumn2" unique_id=1039706226]
+[node name="ShipItem3" type="Control" parent="ScrollContainer/ItemList/ItemListColumn2" unique_id=1296224565]
 custom_minimum_size = Vector2(0, 310)
 layout_mode = 2
 
-[node name="ShipBg" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem3" unique_id=1180405129]
+[node name="ShipBg" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem3" unique_id=436256261]
 layout_mode = 0
 offset_right = 400.0
 offset_bottom = 310.0
 texture = ExtResource("3_1ijqn")
 
-[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem3" unique_id=461809247]
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem3" unique_id=305247509]
 layout_mode = 0
 offset_right = 400.0
 offset_bottom = 200.0
@@ -643,80 +562,80 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem3/MarginContainer" unique_id=902649683]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem3/MarginContainer" unique_id=760702838]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="ShipName" type="Label" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem3/MarginContainer/VBoxContainer" unique_id=1400881971]
+[node name="ShipName" type="Label" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem3/MarginContainer/VBoxContainer" unique_id=225195586]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 theme_override_font_sizes/font_size = 20
 text = "Barco Pirata"
 horizontal_alignment = 1
 
-[node name="ShipTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem3/MarginContainer/VBoxContainer" unique_id=387884647]
+[node name="ShipTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem3/MarginContainer/VBoxContainer" unique_id=1279342677]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-texture = ExtResource("5_6qyum")
+texture = ExtResource("5_dkolh")
 
-[node name="SkillContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem3/MarginContainer/VBoxContainer" unique_id=1961510305]
+[node name="SkillContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem3/MarginContainer/VBoxContainer" unique_id=1481958690]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="SkillTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem3/MarginContainer/VBoxContainer/SkillContainer" unique_id=1106187452]
+[node name="SkillTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem3/MarginContainer/VBoxContainer/SkillContainer" unique_id=1929605701]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-texture = ExtResource("6_plam0")
+texture = ExtResource("6_1ijqn")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem3/MarginContainer/VBoxContainer/SkillContainer" unique_id=317674857]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem3/MarginContainer/VBoxContainer/SkillContainer" unique_id=1306096779]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem3/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=420558262]
+[node name="Label" type="Label" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem3/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=251575173]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.6862745, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 text = "Fúria Pirata"
 horizontal_alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem3/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=887546065]
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem3/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=116351652]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("4_j3ikc")
+theme_override_fonts/normal_font = ExtResource("4_1ijqn")
 theme_override_font_sizes/normal_font_size = 12
 text = "Ataque em X, demora 5 turnos para recarregar"
 fit_content = true
 
-[node name="StatusContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem3/MarginContainer/VBoxContainer" unique_id=1396240777]
+[node name="StatusContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem3/MarginContainer/VBoxContainer" unique_id=554567917]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="EquipButton" type="Button" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem3/MarginContainer/VBoxContainer/StatusContainer" unique_id=563749479]
+[node name="EquipButton" type="Button" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem3/MarginContainer/VBoxContainer/StatusContainer" unique_id=1053313245]
 custom_minimum_size = Vector2(150, 30)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 theme_override_font_sizes/font_size = 14
 text = "EQUIPAR"
 
-[node name="StatusLabel" type="Label" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem3/MarginContainer/VBoxContainer/StatusContainer" unique_id=1064729333]
+[node name="StatusLabel" type="Label" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem3/MarginContainer/VBoxContainer/StatusContainer" unique_id=239579740]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 theme_override_font_sizes/font_size = 14
 text = "ADQUIRIDO"
 horizontal_alignment = 2
 
-[node name="ShipItem4" type="Control" parent="ScrollContainer/ItemList/ItemListColumn2" unique_id=2044924076]
+[node name="ShipItem4" type="Control" parent="ScrollContainer/ItemList/ItemListColumn2" unique_id=771532929]
 custom_minimum_size = Vector2(0, 310)
 layout_mode = 2
 
-[node name="ShipBg" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem4" unique_id=261079980]
+[node name="ShipBg" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem4" unique_id=1438524893]
 layout_mode = 0
 offset_right = 400.0
 offset_bottom = 310.0
 texture = ExtResource("3_1ijqn")
 
-[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem4" unique_id=986553925]
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem4" unique_id=287967706]
 layout_mode = 0
 offset_right = 400.0
 offset_bottom = 200.0
@@ -725,65 +644,65 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem4/MarginContainer" unique_id=808808763]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem4/MarginContainer" unique_id=1565951943]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="ShipName" type="Label" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem4/MarginContainer/VBoxContainer" unique_id=2057053503]
+[node name="ShipName" type="Label" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem4/MarginContainer/VBoxContainer" unique_id=1963284995]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 theme_override_font_sizes/font_size = 20
 text = "Barco Pirata"
 horizontal_alignment = 1
 
-[node name="ShipTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem4/MarginContainer/VBoxContainer" unique_id=630859686]
+[node name="ShipTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem4/MarginContainer/VBoxContainer" unique_id=1914606139]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-texture = ExtResource("5_6qyum")
+texture = ExtResource("5_dkolh")
 
-[node name="SkillContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem4/MarginContainer/VBoxContainer" unique_id=182059440]
+[node name="SkillContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem4/MarginContainer/VBoxContainer" unique_id=1784686189]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="SkillTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem4/MarginContainer/VBoxContainer/SkillContainer" unique_id=1268008986]
+[node name="SkillTexture" type="TextureRect" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem4/MarginContainer/VBoxContainer/SkillContainer" unique_id=2043353463]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-texture = ExtResource("6_plam0")
+texture = ExtResource("6_1ijqn")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem4/MarginContainer/VBoxContainer/SkillContainer" unique_id=304433955]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem4/MarginContainer/VBoxContainer/SkillContainer" unique_id=563380472]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem4/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=1530007985]
+[node name="Label" type="Label" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem4/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=408178084]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.6862745, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 text = "Fúria Pirata"
 horizontal_alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem4/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=320880097]
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem4/MarginContainer/VBoxContainer/SkillContainer/VBoxContainer" unique_id=2145606072]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("4_j3ikc")
+theme_override_fonts/normal_font = ExtResource("4_1ijqn")
 theme_override_font_sizes/normal_font_size = 12
 text = "Ataque em X, demora 5 turnos para recarregar"
 fit_content = true
 
-[node name="StatusContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem4/MarginContainer/VBoxContainer" unique_id=1058275421]
+[node name="StatusContainer" type="HBoxContainer" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem4/MarginContainer/VBoxContainer" unique_id=1636933995]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="EquipButton" type="Button" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem4/MarginContainer/VBoxContainer/StatusContainer" unique_id=1931848708]
+[node name="EquipButton" type="Button" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem4/MarginContainer/VBoxContainer/StatusContainer" unique_id=1077659653]
 custom_minimum_size = Vector2(150, 30)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 theme_override_font_sizes/font_size = 14
 text = "EQUIPAR"
 
-[node name="StatusLabel" type="Label" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem4/MarginContainer/VBoxContainer/StatusContainer" unique_id=305857960]
+[node name="StatusLabel" type="Label" parent="ScrollContainer/ItemList/ItemListColumn2/ShipItem4/MarginContainer/VBoxContainer/StatusContainer" unique_id=141952446]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_j3ikc")
+theme_override_fonts/font = ExtResource("4_1ijqn")
 theme_override_font_sizes/font_size = 14
 text = "ADQUIRIDO"
 horizontal_alignment = 2
