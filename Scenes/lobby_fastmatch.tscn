@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dlgphyy6wuwl3"]
+
+[node name="LobbyFastmatch" type="Control" unique_id=269245233]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

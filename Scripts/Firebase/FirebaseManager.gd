@@ -124,6 +124,7 @@ func _poll_room():
 
 func _request_room():
 	var url = base_url + "rooms/" + current_room + ".json"
+
 	var http = HTTPRequest.new()
 	add_child(http)
 
@@ -131,10 +132,12 @@ func _request_room():
 		var text = body.get_string_from_utf8()
 		var data = JSON.parse_string(text)
 
-		# Se data for null, a sala foi deletada pelo Host
-		_handle_room_update(data) 
+		# Removemos o "if data != null" para que o valor nulo chegue ao handler
+		_handle_room_update(data)
+
 		http.queue_free()
 	)
+
 	http.request(url)
 
 
@@ -143,7 +146,10 @@ func _request_room():
 # -------------------------
 
 func _handle_room_update(data):
-
+	if data == null:
+		print("A sala foi deletada no banco! Avisando as telas...")
+		emit_signal("room_updated", null)
+		return # Interrompe a função aqui para não quebrar as linhas de baixo
 	# TURN SYSTEM
 	if data.has("turn"):
 		if data["turn"] != my_id:
@@ -175,6 +181,7 @@ func _handle_room_update(data):
 	
 	
 func try_join_room(room_id: String, player_id: String, password: String):
+	is_host = false
 	var url = base_url + "rooms/" + room_id + ".json"
 
 	var http = HTTPRequest.new()

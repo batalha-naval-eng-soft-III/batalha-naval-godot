@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://dbttuvhysdmrw"]
 
-[ext_resource type="Texture2D" uid="uid://dgrqtfieivvq3" path="res://Sprites/background.png" id="1_nvaej"]
+[ext_resource type="Texture2D" uid="uid://dgrqtfieivvq3" path="res://Assets/Sprites/PlanosDeFundo/background.png" id="1_nvaej"]
 [ext_resource type="Script" uid="uid://dv5bgqmo6wrsq" path="res://Scripts/lobby.gd" id="1_y0s6v"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_y0s6v"]
+resource_name = "TamanhoTabuleiro"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y0s6v"]
 bg_color = Color(0, 0.6627451, 0.14509805, 1)
@@ -39,72 +42,193 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1231228589]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1415747304]
 layout_mode = 2
-theme_override_constants/separation = 20
 
-[node name="sala" type="Label" parent="MarginContainer/VBoxContainer" unique_id=522279625]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=757308809]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 40
+
+[node name="btnSair" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1174385197]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "<-"
+
+[node name="sala" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1615668751]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme_override_font_sizes/font_size = 30
 text = "LOBBY"
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="espacador" type="Control" parent="MarginContainer/VBoxContainer" unique_id=2050329367]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1027975667]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="VBoxConfiguracoes" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=2072033992]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="espacador" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxConfiguracoes" unique_id=61593511]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxConfiguracoes" unique_id=1569401926]
+layout_mode = 2
+size_flags_vertical = 7
+
+[node name="lblTamTab" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxConfiguracoes/VBoxContainer3" unique_id=100085337]
+layout_mode = 2
+text = "Tamanho do tabuleiro"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxConfiguracoes/VBoxContainer3" unique_id=1795096665]
+layout_mode = 2
+size_flags_vertical = 7
+
+[node name="10x10" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxConfiguracoes/VBoxContainer3/HBoxContainer" unique_id=1073066101]
+layout_mode = 2
+size_flags_horizontal = 11
+size_flags_vertical = 5
+toggle_mode = true
+button_group = SubResource("ButtonGroup_y0s6v")
+text = "10x10"
+
+[node name="16x16" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxConfiguracoes/VBoxContainer3/HBoxContainer" unique_id=787630932]
+layout_mode = 2
+size_flags_horizontal = 11
+size_flags_vertical = 5
+toggle_mode = true
+button_group = SubResource("ButtonGroup_y0s6v")
+text = "16x16
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxConfiguracoes" unique_id=1433176008]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="lblTamFrota" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxConfiguracoes/VBoxContainer" unique_id=1002606579]
+layout_mode = 2
+text = "Tamanho da frota"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxConfiguracoes/VBoxContainer" unique_id=1740655469]
+layout_mode = 2
+size_flags_vertical = 7
+theme_override_constants/separation = 90
+
+[node name="btnMenos" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxConfiguracoes/VBoxContainer/HBoxContainer" unique_id=619333451]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "-"
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxConfiguracoes/VBoxContainer/HBoxContainer" unique_id=1493244320]
+layout_mode = 2
+size_flags_horizontal = 7
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxConfiguracoes/VBoxContainer/HBoxContainer/PanelContainer" unique_id=561941595]
+layout_mode = 2
+text = "4"
+horizontal_alignment = 1
+
+[node name="btnMais" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxConfiguracoes/VBoxContainer/HBoxContainer" unique_id=2050044935]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+
+"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxConfiguracoes" unique_id=918310771]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="lblTempTurn" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxConfiguracoes/VBoxContainer2" unique_id=1107024450]
+layout_mode = 2
+text = "Tempo de turno"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxConfiguracoes/VBoxContainer2" unique_id=742034032]
+layout_mode = 2
+size_flags_vertical = 7
+theme_override_constants/separation = 90
+
+[node name="btnMenos" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxConfiguracoes/VBoxContainer2/HBoxContainer" unique_id=156883003]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "-"
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxConfiguracoes/VBoxContainer2/HBoxContainer" unique_id=864633250]
+layout_mode = 2
+size_flags_horizontal = 7
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxConfiguracoes/VBoxContainer2/HBoxContainer/PanelContainer" unique_id=811904085]
+layout_mode = 2
+text = "2 min"
+horizontal_alignment = 1
+
+[node name="btnMais" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxConfiguracoes/VBoxContainer2/HBoxContainer" unique_id=1829329041]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1231228589]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="espacador" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=2050329367]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 
-[node name="panelHost" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=1363423422]
+[node name="panelHost" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1363423422]
 custom_minimum_size = Vector2(600, 80)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_y0s6v")
 
-[node name="contHost" type="HBoxContainer" parent="MarginContainer/VBoxContainer/panelHost" unique_id=157565618]
+[node name="contHost" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/panelHost" unique_id=157565618]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="hostName" type="Label" parent="MarginContainer/VBoxContainer/panelHost/contHost" unique_id=1289562129]
+[node name="hostName" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/panelHost/contHost" unique_id=1289562129]
 layout_mode = 2
 text = "jogador 1"
 
-[node name="hostStatus" type="Label" parent="MarginContainer/VBoxContainer/panelHost/contHost" unique_id=505215688]
+[node name="hostStatus" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/panelHost/contHost" unique_id=505215688]
 layout_direction = 3
 layout_mode = 2
 text = "status: pronto"
 
-[node name="panelP2" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=448705049]
+[node name="panelP2" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=448705049]
 custom_minimum_size = Vector2(600, 80)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_nvaej")
 
-[node name="contP2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/panelP2" unique_id=566331222]
+[node name="contP2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/panelP2" unique_id=566331222]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="p2Name" type="Label" parent="MarginContainer/VBoxContainer/panelP2/contP2" unique_id=1422241199]
+[node name="p2Name" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/panelP2/contP2" unique_id=1422241199]
 layout_mode = 2
 text = "jogador 2"
 
-[node name="p2Status" type="Label" parent="MarginContainer/VBoxContainer/panelP2/contP2" unique_id=349308748]
+[node name="p2Status" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/panelP2/contP2" unique_id=349308748]
 layout_direction = 3
 layout_mode = 2
 text = "status: pronto"
 
-[node name="espacador2" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1431915046]
+[node name="espacador2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1431915046]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
-[node name="btnPronto" type="Button" parent="MarginContainer/VBoxContainer" unique_id=94883762]
+[node name="btnPronto" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=94883762]
 custom_minimum_size = Vector2(300, 80)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Estou pronto!"
-
-[node name="btnSair" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1174385197]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Sair da sala"
