@@ -1,3 +1,7 @@
+# compiled output
+dist/
+node_modules/
+
 # Godot 4+
 .godot/
 
@@ -13,7 +17,7 @@ export_presets.cfg
 *.aab
 *.exe
 *.zip
-
+.env
 # Logs
 *.log
 
@@ -31,3 +35,12 @@ Thumbs.db
 
 node_modules/
 web-build/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
