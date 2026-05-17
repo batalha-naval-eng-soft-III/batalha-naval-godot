@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { app, remoteConfig } from 'firebase-admin';
+import { app } from 'firebase-admin';
 import { RemoteConfig, RemoteConfigParameter } from 'firebase-admin/remote-config';
 
 @Injectable()
