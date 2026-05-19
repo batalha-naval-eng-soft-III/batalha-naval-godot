@@ -251,3 +251,91 @@ func _send_delete_request(url: String):
 		http.queue_free()
 	)
 	http.request(url, [], HTTPClient.METHOD_DELETE)
+
+# Variável para controlar se o jogador está buscando partida rápida
+var searching_quick_match := false
+
+# -------------------------
+# SISTEMA DE MATCHMAKING (PARTIDA RÁPIDA)
+# -------------------------
+
+func start_quick_match(player_id: String):
+	searching_quick_match = true
+	var url = base_url + "quick_queue.json"
+
+	var http = HTTPRequest.new()
+	add_child(http)
+	
+	# Usando bind para passar o player_id e o próprio nó http para o callback
+	http.request_completed.connect(self._on_quick_queue_checked.bind(http, player_id))
+	http.request(url)
+
+func _on_quick_queue_checked(result, code, headers, body, http, player_id):
+	http.queue_free()
+	
+	if not searching_quick_match:
+		return # O jogador cancelou a busca antes da resposta chegar
+		
+	var text = body.get_string_from_utf8()
+	var queue_data = JSON.parse_string(text) if text else null
+
+	if typeof(queue_data) == TYPE_DICTIONARY and queue_data.size() > 0:
+		# ACHOU ALGUÉM NA FILA!
+		var host_id = queue_data.keys()[0]
+		var room_to_join = queue_data[host_id]
+
+		print("Oponente encontrado! Entrando na sala: ", room_to_join)
+
+		# 1. Remove a sala da fila para que um terceiro jogador não tente entrar
+		_send_delete_request(base_url + "quick_queue/" + host_id + ".json")
+
+		# 2. Configura as variáveis locais
+		current_room = room_to_join
+		my_id = player_id
+		is_host = false
+		
+		# 3. Entra na sala como jogador 2
+		join_room(current_room, player_id)
+
+		# 4. Força as configurações fixas e inicia o combate diretamente
+		var fixed_config = {
+			"state": "combat",
+			"config": {
+				"board_size": "10x10",
+				"fleet_size": 4,
+				"turn_time": 2
+			}
+		}
+		# O update_room_state vai disparar o _handle_room_update no Host que estava aguardando
+		update_room_state(current_room, fixed_config)
+		
+		# Inicia o listener para receber os ataques e turnos
+		start_listening(current_room, player_id)
+
+	else:
+		# FILA VAZIA - CRIA UMA SALA E AGUARDA
+		print("Fila vazia. Criando sala de partida rápida...")
+		is_host = true
+		my_id = player_id
+		
+		# Gera um ID único simples para a sala rápida
+		var new_room_id = "qm_" + str(Time.get_unix_time_from_system()).replace(".", "")
+		current_room = new_room_id
+
+		# Cria a sala base (sem senha, já que é aleatório)
+		create_room(new_room_id, player_id, "")
+
+		# Adiciona o ID dessa sala na fila pública
+		var url_queue = base_url + "quick_queue/" + player_id + ".json"
+		_send_request(url_queue, HTTPClient.METHOD_PUT, new_room_id)
+
+		# Fica escutando a sala. Quando o outro jogador entrar, ele vai mudar o state para "combat"
+		start_listening(new_room_id, player_id)
+
+func cancel_quick_match():
+	searching_quick_match = false
+	if is_host and current_room.begins_with("qm_"):
+		# Tira da fila pública
+		_send_delete_request(base_url + "quick_queue/" + my_id + ".json")
+		# Deleta a sala criada
+		leave_current_room()

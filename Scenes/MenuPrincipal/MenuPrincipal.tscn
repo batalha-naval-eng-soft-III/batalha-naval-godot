@@ -18,11 +18,25 @@ offset_bottom = 718.0
 texture = ExtResource("3_sq7d3")
 stretch_mode = 1
 
+[node name="VsCpuButton" type="Button" parent="." unique_id=2141685138]
+offset_left = 641.0
+offset_top = 316.0
+offset_right = 649.0
+offset_bottom = 324.0
+text = "Partida vs CPU"
+
+[node name="FastmachButton" type="Button" parent="." unique_id=696301720]
+offset_left = 642.0
+offset_top = 358.0
+offset_right = 761.0
+offset_bottom = 389.0
+text = "Partida rápida"
+
 [node name="CreateroomButton" type="Button" parent="." unique_id=657855340]
 offset_left = 659.0
 offset_top = 394.0
-offset_right = 667.0
-offset_bottom = 402.0
+offset_right = 741.0
+offset_bottom = 425.0
 text = "Criar Sala"
 
 [node name="JoinroomButton" type="Button" parent="." unique_id=1843573949]

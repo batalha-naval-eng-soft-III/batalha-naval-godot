@@ -1,7 +1,9 @@
 extends Node2D
 
 func _ready() -> void:
-	pass # Replace with function body.
+	$FastmachButton.pressed.connect(_on_btn_partida_rapida_pressed)
+	$VsCpuButton.pressed.connect(_on_btn_partida_vscpu_pressed)
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -70,4 +72,10 @@ func _on_join_button_pressed() -> void:
 	
 	get_tree().change_scene_to_file("res://Scenes/lobby.tscn")
 	
-	
+func _on_btn_partida_rapida_pressed() -> void:
+	# Vá direto para a cena de carregamento/busca
+	get_tree().change_scene_to_file("res://Scenes/lobby_fastmatch.tscn")
+
+func _on_btn_partida_vscpu_pressed() -> void:
+	# Vá direto para a cena de carregamento/busca
+	get_tree().change_scene_to_file("res://Scenes/Jogo/Jogo.tscn")
