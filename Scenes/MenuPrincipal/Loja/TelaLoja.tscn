@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://csgoly7dydsk7"]
 
 [ext_resource type="Texture2D" uid="uid://dlnpf0y08l250" path="res://Assets/Sprites/Placeholder/Placeholder.png" id="1_q4cfh"]
-[ext_resource type="PackedScene" uid="uid://dbki8o7rdgqm5" path="res://Scenes/MenuPrincipal/Loja/Item.tscn" id="2_g62hh"]
+[ext_resource type="PackedScene" uid="uid://dbki8o7rdgqm5" path="res://Scenes/MenuPrincipal/Loja/ItemNavio.tscn" id="2_g62hh"]
 
 [node name="TelaLoja" type="Node2D" unique_id=204960472]
 
@@ -70,7 +70,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=673448055]
+[node name="BotaoCategorias" type="VBoxContainer" parent="CanvasLayer" unique_id=673448055]
 anchors_preset = -1
 anchor_top = 0.49305555
 anchor_bottom = 0.5
@@ -81,32 +81,32 @@ grow_vertical = 2
 theme_override_constants/separation = 10
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=761452179]
+[node name="Label" type="Label" parent="CanvasLayer/BotaoCategorias" unique_id=761452179]
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "Categorias"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=416754999]
+[node name="Button" type="Button" parent="CanvasLayer/BotaoCategorias" unique_id=416754999]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Navios
 "
 
-[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=279905584]
+[node name="Button2" type="Button" parent="CanvasLayer/BotaoCategorias" unique_id=279905584]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Skins
 "
 
-[node name="Button3" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=962868977]
+[node name="Button3" type="Button" parent="CanvasLayer/BotaoCategorias" unique_id=962868977]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Efeitos
 "
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer" unique_id=1076697713]
+[node name="ContainerItensNavio" type="GridContainer" parent="CanvasLayer" unique_id=1076697713]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -120,14 +120,68 @@ grow_horizontal = 0
 grow_vertical = 0
 columns = 5
 
-[node name="ItemLoja" parent="CanvasLayer/GridContainer" unique_id=487360648 instance=ExtResource("2_g62hh")]
+[node name="ItemNavio" parent="CanvasLayer/ContainerItensNavio" unique_id=487360648 instance=ExtResource("2_g62hh")]
 layout_mode = 2
 
-[node name="ItemLoja2" parent="CanvasLayer/GridContainer" unique_id=1047451500 instance=ExtResource("2_g62hh")]
+[node name="ItemNavio2" parent="CanvasLayer/ContainerItensNavio" unique_id=1047451500 instance=ExtResource("2_g62hh")]
 layout_mode = 2
 
-[node name="ItemLoja3" parent="CanvasLayer/GridContainer" unique_id=1806811013 instance=ExtResource("2_g62hh")]
+[node name="ItemNavio3" parent="CanvasLayer/ContainerItensNavio" unique_id=1806811013 instance=ExtResource("2_g62hh")]
 layout_mode = 2
 
-[node name="ItemLoja4" parent="CanvasLayer/GridContainer" unique_id=2053635137 instance=ExtResource("2_g62hh")]
+[node name="ItemNavio4" parent="CanvasLayer/ContainerItensNavio" unique_id=2053635137 instance=ExtResource("2_g62hh")]
+layout_mode = 2
+
+[node name="ContainerItenSkin" type="GridContainer" parent="CanvasLayer" unique_id=1819478780]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 74.0
+offset_top = -4.0
+offset_right = 1006.0
+offset_bottom = 370.0
+grow_horizontal = 0
+grow_vertical = 0
+columns = 5
+
+[node name="Itemskin" parent="CanvasLayer/ContainerItenSkin" unique_id=2103482243 instance=ExtResource("2_g62hh")]
+layout_mode = 2
+
+[node name="Itemskin2" parent="CanvasLayer/ContainerItenSkin" unique_id=99505507 instance=ExtResource("2_g62hh")]
+layout_mode = 2
+
+[node name="Itemskin3" parent="CanvasLayer/ContainerItenSkin" unique_id=781071712 instance=ExtResource("2_g62hh")]
+layout_mode = 2
+
+[node name="Itemskin4" parent="CanvasLayer/ContainerItenSkin" unique_id=516150718 instance=ExtResource("2_g62hh")]
+layout_mode = 2
+
+[node name="ContainerItenEfeito" type="GridContainer" parent="CanvasLayer" unique_id=2045327255]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 69.0
+offset_top = -718.0
+offset_right = 1001.0
+offset_bottom = -344.0
+grow_horizontal = 0
+grow_vertical = 0
+columns = 5
+
+[node name="ItemEfeito" parent="CanvasLayer/ContainerItenEfeito" unique_id=46139332 instance=ExtResource("2_g62hh")]
+layout_mode = 2
+
+[node name="ItemEfeito2" parent="CanvasLayer/ContainerItenEfeito" unique_id=580392381 instance=ExtResource("2_g62hh")]
+layout_mode = 2
+
+[node name="ItemEfeito3" parent="CanvasLayer/ContainerItenEfeito" unique_id=1801786244 instance=ExtResource("2_g62hh")]
+layout_mode = 2
+
+[node name="ItemEfeito4" parent="CanvasLayer/ContainerItenEfeito" unique_id=1471372214 instance=ExtResource("2_g62hh")]
 layout_mode = 2
