@@ -69,3 +69,7 @@ func _on_join_button_pressed() -> void:
 	$Firebase.try_join_room(room_name, player_id, room_pass)
 	
 	
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/MenuPrincipal/Loja/TelaLoja.tscn")

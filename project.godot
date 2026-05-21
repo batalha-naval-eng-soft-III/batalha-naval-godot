@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Session="*uid://db3ouba8d7vsm"
+UserManager="uid://bx8a6nc6a3ua4"
 
 [display]
 

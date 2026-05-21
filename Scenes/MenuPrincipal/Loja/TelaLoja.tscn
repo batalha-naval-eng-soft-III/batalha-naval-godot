@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://csgoly7dydsk7"]
 
+[ext_resource type="Script" uid="uid://o0jbxduf2pq2" path="res://Scenes/MenuPrincipal/Loja/tela_loja.gd" id="1_fxlws"]
 [ext_resource type="Texture2D" uid="uid://dlnpf0y08l250" path="res://Assets/Sprites/Placeholder/Placeholder.png" id="1_q4cfh"]
 [ext_resource type="PackedScene" uid="uid://dbki8o7rdgqm5" path="res://Scenes/MenuPrincipal/Loja/ItemNavio.tscn" id="2_g62hh"]
 
 [node name="TelaLoja" type="Node2D" unique_id=204960472]
+script = ExtResource("1_fxlws")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1687849451]
 position = Vector2(650, 88)
@@ -185,3 +187,5 @@ layout_mode = 2
 
 [node name="ItemEfeito4" parent="CanvasLayer/ContainerItenEfeito" unique_id=1471372214 instance=ExtResource("2_g62hh")]
 layout_mode = 2
+
+[connection signal="pressed" from="CanvasLayer/BotaoVoltarTela" to="." method="_on_botao_voltar_tela_pressed"]

@@ -6,6 +6,7 @@ extends Node2D
 var api_key = "AIzaSyDElepKQDGyA4-kHcLGNUrL8a2B9Buvdzo"
 const SIZE = 10
 
+
 var email_usuario = ""
 var senha_usuario = ""
 
@@ -43,16 +44,20 @@ func _on_request_completed(result, response_code, headers, body):
 	if response_code == 200:
 		print("Login OK!")
 		
+		#var user_logado_uid= response["userUID"]
 		var id_token = response["idToken"]
 		var local_id = response["localId"]
 
 		Session.user_id = email_input.text.strip_edges().replace(".", "_").replace("@", "_")
 		Session.token = id_token
+		Session.uid = local_id
+		
 
 		print("User ID:", local_id)
 		print("Token:", id_token)
 
 		get_tree().change_scene_to_file("res://Scenes/MenuPrincipal/MenuPrincipal.tscn")
+		
 	else:
 		print("Erro:")
 		print(response)
